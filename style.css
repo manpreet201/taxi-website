@@ -1,0 +1,478 @@
+/* Global Reset */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;}
+
+body{
+background:#f5f5f5;
+color:#333;
+line-height:1.6;
+scroll-behavior:smooth;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+/* Navbar */
+
+.header{
+background:#111;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0;
+flex-wrap:wrap;
+}
+
+.logo{
+color:#FFD000;
+font-size:24px;
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+list-style:none;
+transition:max-height 0.3s ease;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:16px;
+}
+
+.nav-links a:hover{
+color:#FFD000;
+}
+
+.hamburger{
+display:none;
+flex-direction:column;
+cursor:pointer;
+gap:5px;
+z-index:1100;
+}
+
+.hamburger span{
+width:25px;
+height:3px;
+background:white;
+transition:0.3s;
+}
+
+.hamburger.active span:nth-child(1){
+transform: rotate(45deg) translate(5px,5px);
+}
+
+.hamburger.active span:nth-child(2){
+opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+transform: rotate(-45deg) translate(5px,-5px);
+}
+
+
+/* Hero */
+
+.hero{
+min-height:90vh;
+background-image:url("car1.jpeg");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.hero-overlay{
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px 20px;
+}
+
+.hero-content{
+text-align:center;
+color:white;
+max-width:500px;
+width:100%;
+opacity:0;
+transform:translateY(50px);
+transition:all 1s ease;
+}
+
+.hero-content.animate{
+opacity:1;
+transform:translateY(0);
+}
+
+.hero h2{
+font-size:40px;
+margin-bottom:10px;
+transition:0.3s;
+}
+
+.hero h2:hover{
+color:#FFD000;
+}
+
+.hero p{
+margin-bottom:20px;
+}
+
+/* Booking Form */
+
+.booking-form{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.booking-form input,
+.booking-form select{
+padding:12px;
+border:none;
+border-radius:5px;
+background:rgba(255,255,255,0.9);
+}
+
+.booking-form label{
+color:white;
+font-size:14px;
+text-align:left;
+}
+
+.contact-info{
+margin-top:10px;
+color:white;
+font-weight:bold;
+}
+
+
+/* Booking Buttons Layout */
+
+.booking-buttons{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+/* Book Taxi Button */
+
+.book-btn{
+flex:1;
+background:#FFD000;
+border:none;
+padding:12px;
+border-radius:5px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.book-btn:hover{
+background:#e6c200;
+transform:scale(1.03);
+}
+
+
+/* Call Button */
+
+.call-btn{
+flex:1;
+background:#28a745;
+color:white;
+text-decoration:none;
+padding:12px;
+border-radius:5px;
+font-weight:bold;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:6px;
+transition:0.3s;
+}
+
+.call-btn:hover{
+background:#218838;
+transform:scale(1.03);
+}
+
+
+/* Sections */
+
+.about,
+.services,
+.fleet,
+.reviews,
+.contact{
+padding:70px 0;
+background:white;
+margin-top:20px;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:40px;
+font-size:30px;
+}
+
+
+/* Grid Layout */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+
+/* Cards */
+
+.card{
+background:#fafafa;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px) scale(1.03);
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.card h3{
+margin:15px;
+}
+
+.card p{
+margin:0 15px 20px;
+font-size:14px;
+}
+
+
+/* Reviews */
+
+.review-card{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 3px 8px rgba(0,0,0,0.1);
+transition:0.3s;
+opacity:0;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.review-card.active{
+opacity:1;
+position:relative;
+}
+
+.review-card:hover{
+transform:scale(1.02);
+box-shadow:0 5px 12px rgba(0,0,0,0.15);
+}
+
+.review-grid{
+position:relative;
+min-height:200px;
+display:flex;
+overflow:hidden;
+gap:20px;
+}
+
+.carousel-container{
+position:relative;
+}
+
+.carousel-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.5);
+color:white;
+border:none;
+padding:10px 15px;
+font-size:20px;
+cursor:pointer;
+border-radius:50%;
+z-index:10;
+transition:0.3s;
+}
+
+.carousel-btn:hover{
+background:#FFD000;
+color:#111;
+}
+
+.carousel-btn.prev{
+left:-10px;
+}
+
+.carousel-btn.next{
+right:-10px;
+}
+
+
+/* Contact */
+
+.contact{
+text-align:center;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+background:#FFD000;
+padding:12px 25px;
+text-decoration:none;
+color:black;
+font-weight:bold;
+border-radius:5px;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.footer{
+background:#111;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.social-icons{
+margin-top:20px;
+}
+
+.social-icons a{
+color:white;
+margin:0 10px;
+font-size:20px;
+}
+
+.social-icons a:hover{
+color:#FFD000;
+}
+
+
+/* Floating Booking Button */
+
+.floating-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#FFD000;
+color:#111;
+padding:15px 25px;
+border-radius:50px;
+text-decoration:none;
+font-size:16px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+transition:transform 0.2s,background-color 0.3s;
+z-index:200;
+}
+
+.floating-btn:hover{
+background:#e6c200;
+transform:scale(1.1);
+}
+
+
+/* Back to Top */
+
+#back-to-top{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#FFD000;
+color:#111;
+padding:10px 12px;
+border:none;
+border-radius:50%;
+cursor:pointer;
+display:none;
+transition:0.3s;
+}
+
+#back-to-top:hover{
+transform:scale(1.1);
+}
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.nav-links{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#111;
+flex-direction:column;
+overflow:hidden;
+max-height:0;
+transition:max-height 0.3s ease;
+z-index:1000;
+}
+
+.nav-links.active{
+max-height:500px;
+}
+
+.nav-links li{
+text-align:center;
+padding:15px 0;
+}
+
+.hamburger{
+display:flex;
+}
+
+.hero h2{
+font-size:28px;
+}
+
+.hero{
+min-height:70vh;
+}
+
+.review-grid{
+flex-wrap:nowrap;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+gap:15px;
+}
+
+.booking-buttons{
+flex-direction:column;
+}
+
+}
