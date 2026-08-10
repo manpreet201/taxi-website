@@ -3,218 +3,562 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
 <title>Melbourne Taxi | Reliable Taxi Service</title>
+
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+>
+```
+
 </head>
 
 <body>
 
+```
+<!-- =========================
+     HEADER / NAVIGATION
+========================== -->
+
 <header class="header">
-<div class="container nav-container">
-<h1 class="logo">Melbourne Taxi</h1>
-<div class="hamburger" id="hamburger">
-<span></span>
-<span></span>
-<span></span>
-</div>
-<nav class="nav">
-<ul class="nav-links" id="nav-links">
-<li><a href="#hero">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#fleet">Fleet</a></li>
-<li><a href="#reviews">Reviews</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-</div>
+
+    <div class="container nav-container">
+
+        <h1 class="logo">Melbourne Taxi</h1>
+
+        <button
+            class="hamburger"
+            id="hamburger"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav" aria-label="Main navigation">
+
+            <ul class="nav-links" id="nav-links">
+
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#fleet">Fleet</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
 </header>
 
-<!-- HERO / BOOKING -->
+
+<!-- =========================
+     HERO / BOOKING
+========================== -->
 
 <section id="hero" class="hero">
-<div class="hero-overlay">
-<div class="hero-content animate-on-load">
-<h2>Book Your Melbourne Taxi</h2>
-<p>Fast, safe, and reliable taxi service across Melbourne.</p>
 
-<form class="booking-form" id="booking-form">
+    <div class="hero-overlay">
 
-<input type="text" name="customer_name" placeholder="Full Name" required>
-<input type="email" name="customer_email" placeholder="Email Address" required>
-<input type="tel" name="customer_phone" placeholder="Phone Number" required>
-<input type="text" name="customer_address" placeholder="Address" required>
-<input type="text" name="pickup_location" placeholder="Pickup Location" required>
-<input type="text" name="destination" placeholder="Destination" required>
+        <div class="hero-content animate-on-load">
 
-<label>Booking Date</label> <input type="date" name="booking_date" required>
+            <h2>Book Your Melbourne Taxi</h2>
 
-<label>Pickup Time</label> <input type="time" name="pickup_time" required>
+            <p>
+                Fast, safe, and reliable taxi service across Melbourne.
+            </p>
 
-<select name="vehicle_type" required>
-<option value="">Select Vehicle Type</option>
-<option value="Maxi Taxi">Maxi Taxi</option>
-<option value="Silver Service Sedan">Silver Service Sedan</option>
-<option value="Wagon Silver Service">Wagon Silver Service</option>
-<option value="Standard Yellow Taxi">Standard Taxi</option>
-</select>
 
-<label>Return Trip</label> <select name="return_trip" required>
+            <form class="booking-form" id="booking-form">
 
-<option value="">Return Trip?</option>
-<option value="No">No</option>
-<option value="Yes">Yes</option>
-</select>
+                <input
+                    type="text"
+                    name="customer_name"
+                    placeholder="Full Name"
+                    required
+                >
 
-<textarea name="message" placeholder="Additional Message"></textarea>
+                <input
+                    type="email"
+                    name="customer_email"
+                    placeholder="Email Address"
+                    required
+                >
 
-<div class="booking-buttons">
-<button type="submit" class="book-btn">Book Taxi</button>
-<a href="tel:+61410912972" class="call-btn"><i class="fas fa-phone"></i> Call Now</a>
-</div>
+                <input
+                    type="tel"
+                    name="customer_phone"
+                    placeholder="Phone Number"
+                    required
+                >
 
-</form>
+                <input
+                    type="text"
+                    name="customer_address"
+                    placeholder="Address"
+                    required
+                >
 
-</div>
-</div>
+                <input
+                    type="text"
+                    name="pickup_location"
+                    placeholder="Pickup Location"
+                    required
+                >
+
+                <input
+                    type="text"
+                    name="destination"
+                    placeholder="Destination"
+                    required
+                >
+
+
+                <label for="booking_date">
+                    Booking Date
+                </label>
+
+                <input
+                    type="date"
+                    id="booking_date"
+                    name="booking_date"
+                    required
+                >
+
+
+                <label for="pickup_time">
+                    Pickup Time
+                </label>
+
+                <input
+                    type="time"
+                    id="pickup_time"
+                    name="pickup_time"
+                    required
+                >
+
+
+                <select name="vehicle_type" required>
+
+                    <option value="">
+                        Select Vehicle Type
+                    </option>
+
+                    <option value="Silver Service Sedan">
+                        Silver Service Sedan
+                    </option>
+
+                    <option value="Wagon Silver Service">
+                        Wagon Silver Service
+                    </option>
+
+                    <option value="Standard Taxi">
+                        Standard Taxi
+                    </option>
+
+                </select>
+
+
+                <label for="return_trip">
+                    Return Trip
+                </label>
+
+                <select
+                    id="return_trip"
+                    name="return_trip"
+                    required
+                >
+
+                    <option value="">
+                        Return Trip?
+                    </option>
+
+                    <option value="No">
+                        No
+                    </option>
+
+                    <option value="Yes">
+                        Yes
+                    </option>
+
+                </select>
+
+
+                <textarea
+                    name="message"
+                    placeholder="Additional Message"
+                ></textarea>
+
+
+                <div class="booking-buttons">
+
+                    <button
+                        type="submit"
+                        class="book-btn"
+                    >
+                        Book Taxi
+                    </button>
+
+                    <a
+                        href="tel:+61410912972"
+                        class="call-btn"
+                    >
+                        <i class="fas fa-phone"></i>
+                        Call Now
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- ABOUT -->
+
+<!-- =========================
+     ABOUT
+========================== -->
 
 <section id="about" class="about">
-<div class="container">
-<h2 class="section-title">About Melbourne Taxi</h2>
-<p>
-Melbourne Taxi provides 24/7 reliable taxi services with professional drivers,
-comfortable vehicles, and transparent pricing. We specialize in airport
-transfers, corporate travel, events, and hotel pickups.
-</p>
-</div>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            About Melbourne Taxi
+        </h2>
+
+        <p>
+            Melbourne Taxi is committed to providing dependable,
+            comfortable, and professional transportation across Melbourne.
+            Whether you are travelling to the airport, attending a business
+            meeting, heading to a special event, or simply need a reliable
+            everyday ride, our service is designed to make your journey easy
+            and stress-free.
+        </p>
+
+    </div>
+
 </section>
 
-<!-- SERVICES -->
+
+<!-- =========================
+     SERVICES
+========================== -->
 
 <section id="services" class="services">
-<div class="container">
-<h2 class="section-title">Our Services</h2>
-<div class="grid">
 
-<div class="card">
-<img src="airport.jpg">
-<h3>Airport Transfers</h3>
-<p>Reliable airport pickup and drop service across Melbourne.</p>
-</div>
+    <div class="container">
 
-<div class="card">
-<img src="corporate.jpeg">
-<h3>Corporate Travel</h3>
-<p>Professional taxi service for business travel.</p>
-</div>
+        <h2 class="section-title">
+            Our Services
+        </h2>
 
-<div class="card">
-<img src="event.jpeg">
-<h3>Event Transport</h3>
-<p>Comfortable transport for weddings and special events.</p>
-</div>
+        <div class="grid">
 
-<div class="card">
-<img src="hotel.jpg">
-<h3>Hotel Transfers</h3>
-<p>Convenient pickup and drop-off service for hotels.</p>
-</div>
+            <div class="card">
 
-</div>
-</div>
+                <img
+                    src="airport.jpg"
+                    alt="Airport transfer taxi"
+                >
+
+                <h3>Airport Transfers</h3>
+
+                <p>
+                    Reliable airport pickup and drop-off services
+                    across Melbourne.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    src="corporate.jpeg"
+                    alt="Corporate taxi travel"
+                >
+
+                <h3>Corporate Travel</h3>
+
+                <p>
+                    Professional and comfortable transport
+                    for business travel.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    src="event.jpeg"
+                    alt="Event transport taxi"
+                >
+
+                <h3>Event Transport</h3>
+
+                <p>
+                    Convenient transport for weddings,
+                    events, and special occasions.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    src="hotel.jpg"
+                    alt="Hotel transfer taxi"
+                >
+
+                <h3>Hotel Transfers</h3>
+
+                <p>
+                    Convenient pickup and drop-off services
+                    for Melbourne hotels.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- FLEET -->
+
+<!-- =========================
+     FLEET
+========================== -->
 
 <section id="fleet" class="fleet">
-<div class="container">
-<h2 class="section-title">Our Taxi Fleet</h2>
-<div class="grid">
 
-<div class="card">
-<img src="maxi.jpeg">
-<h3>Maxi Taxi</h3>
-<p>Spacious taxi for up to ten passengers.</p>
-</div>
+    <div class="container">
 
-<div class="card">
-<img src="silver.jpeg">
-<h3>Silver Service Sedan</h3>
-<p>Premium sedan taxi for executive travel.</p>
-</div>
+        <h2 class="section-title">
+            Our Taxi Fleet
+        </h2>
 
-<div class="card">
-<img src="wagon.jpeg">
-<h3>Wagon Silver Service</h3>
-<p>Extra luggage capacity ideal for airport travellers.</p>
-</div>
+        <div class="grid">
 
-<div class="card">
-<img src="yellow.jpeg">
-<h3>Standard Taxi</h3>
-<p>Affordable everyday taxi service.</p>
-</div>
+            <div class="card">
 
-</div>
-</div>
+                <img
+                    src="silver.jpeg"
+                    alt="Silver Service Sedan"
+                >
+
+                <h3>Silver Service Sedan</h3>
+
+                <p>
+                    Premium and comfortable sedan service
+                    for executive and everyday travel.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    src="wagon.jpeg"
+                    alt="Wagon Silver Service"
+                >
+
+                <h3>Wagon Silver Service</h3>
+
+                <p>
+                    Extra luggage capacity, ideal for
+                    airport and family travel.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    src="yellow.jpeg"
+                    alt="Standard Taxi"
+                >
+
+                <h3>Standard Taxi</h3>
+
+                <p>
+                    Affordable and reliable transportation
+                    for everyday travel.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- REVIEWS -->
+
+<!-- =========================
+     REVIEWS
+========================== -->
 
 <section id="reviews" class="reviews">
-<div class="container">
-<h2 class="section-title">Customer Reviews</h2>
-<div class="carousel-container">
-<button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
-<div class="review-grid">
 
-<div class="review-card active">
-<p>"Driver arrived on time and the ride was smooth."</p>
-<h4>- James T.</h4>
-</div>
+    <div class="container">
 
-<div class="review-card">
-<p>"Professional and reliable service."</p>
-<h4>- Sarah L.</h4>
-</div>
+        <h2 class="section-title">
+            Customer Reviews
+        </h2>
 
-<div class="review-card">
-<p>"Maxi taxi was spacious and comfortable."</p>
-<h4>- Michael R.</h4>
-</div>
 
-</div>
-<button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
-</div>
-</div>
+        <div class="carousel-container">
+
+            <button
+                class="carousel-btn prev"
+                type="button"
+                aria-label="Previous review"
+            >
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+
+            <div class="review-grid">
+
+                <div class="review-card active">
+
+                    <p>
+                        "Driver arrived on time and the ride was smooth."
+                    </p>
+
+                    <h4>- James T.</h4>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <p>
+                        "Professional and reliable service."
+                    </p>
+
+                    <h4>- Sarah L.</h4>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <p>
+                        "Excellent service and a very comfortable ride."
+                    </p>
+
+                    <h4>- Michael R.</h4>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="carousel-btn next"
+                type="button"
+                aria-label="Next review"
+            >
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- CONTACT -->
+
+<!-- =========================
+     CONTACT
+========================== -->
 
 <section id="contact" class="contact">
-<div class="container">
-<h2>Contact Us</h2>
-<p>Email or call us to book your taxi.</p>
-<a href="mailto:reetugangerrani@gmail.com" class="btn">Send Booking Email</a>
-</div>
+
+    <div class="container">
+
+        <h2>Contact Us</h2>
+
+        <p>
+            Email or call us to book your taxi.
+        </p>
+
+        <a
+            href="mailto:reetugangerrani@gmail.com"
+            class="btn"
+        >
+            Send Booking Email
+        </a>
+
+    </div>
+
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================== -->
+
 <footer class="footer">
-<p>© 2026 Melbourne Taxi | Reliable Taxi Service in Melbourne</p>
+
+    <p>
+        © 2026 Melbourne Taxi |
+        Reliable Taxi Service in Melbourne
+    </p>
+
 </footer>
 
-<a href="#hero" class="floating-btn">Book Now</a> <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<!-- FLOATING BUTTONS -->
+
+<a
+    href="#hero"
+    class="floating-btn"
+>
+    Book Now
+</a>
+
+
+<button
+    id="back-to-top"
+    type="button"
+    aria-label="Back to top"
+>
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+
+<!-- SCRIPTS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+></script>
 
 <script src="script.js"></script>
+```
 
 </body>
+
 </html>
