@@ -1,73 +1,101 @@
-/* Global Reset */
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;}
+/* =========================
+RESET & GLOBAL
+========================= */
 
-body{
-background:#f5f5f5;
-color:#333;
-line-height:1.6;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
 scroll-behavior:smooth;
 }
 
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f5f5;
+color:#333;
+line-height:1.6;
+overflow-x:hidden;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
 .container{
-width:90%;
-max-width:1200px;
+width:min(90%, 1200px);
 margin:auto;
 }
 
-/* Navbar */
+/* =========================
+NAVBAR
+========================= */
 
 .header{
 background:#111;
 position:sticky;
 top:0;
+width:100%;
 z-index:1000;
 }
 
 .nav-container{
+min-height:70px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 0;
-flex-wrap:wrap;
+position:relative;
 }
 
 .logo{
 color:#FFD000;
 font-size:24px;
+font-weight:700;
+white-space:nowrap;
 }
 
 .nav-links{
 display:flex;
-gap:20px;
+align-items:center;
+gap:25px;
 list-style:none;
-transition:max-height 0.3s ease;
 }
 
 .nav-links a{
-color:white;
+color:#fff;
 text-decoration:none;
 font-size:16px;
+transition:color 0.3s ease;
 }
 
 .nav-links a:hover
 
+/* =========================
+HAMBURGER
+========================= */
+
 .hamburger{
 display:none;
-flex-direction:column;
+width:32px;
 cursor:pointer;
-gap:5px;
-z-index:1100;
+border:none;
 }
 
 .hamburger span{
-width:25px;
+display:block;
+width:100%;
 height:3px;
-background:white;
-transition:0.3s;
+margin:6px 0;
+background:#fff;
+border-radius:10px;
+transition:all 0.3s ease;
 }
 
 .hamburger.active span:nth-child(1){
-transform: rotate(45deg) translate(5px,5px);
+transform:rotate(45deg) translate(6px,6px);
 }
 
 .hamburger.active span:nth-child(2){
@@ -75,13 +103,16 @@ opacity:0;
 }
 
 .hamburger.active span:nth-child(3){
-transform: rotate(-45deg) translate(5px,-5px);
+transform:rotate(-45deg) translate(7px,-7px);
 }
 
-/* Hero */
+/* =========================
+HERO
+========================= */
 
 .hero{
 min-height:90vh;
+min-height:90svh;
 background-image:url("car1.jpeg");
 background-size:cover;
 background-position:center;
@@ -92,18 +123,20 @@ justify-content:center;
 
 .hero-overlay{
 width:100%;
-height:100%;
+min-height:90vh;
+min-height:90svh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:40px 20px;
+padding:50px 20px;
+background:rgba(0,0,0,0.45);
 }
 
 .hero-content{
-text-align:center;
-color:white;
-max-width:500px;
 width:100%;
+max-width:520px;
+text-align:center;
+color:#fff;
 opacity:0;
 transform:translateY(50px);
 transition:all 1s ease;
@@ -115,256 +148,305 @@ transform:translateY(0);
 }
 
 .hero h2{
-font-size:40px;
-margin-bottom:10px;
-transition:0.3s;
+font-size:clamp(30px, 5vw, 46px);
+line-height:1.2;
+margin-bottom:12px;
 }
-
-.hero h2:hover
 
 .hero p{
-margin-bottom:20px;
+margin-bottom:25px;
+font-size:clamp(15px, 2vw, 18px);
 }
 
-/* Booking Form */
+/* =========================
+BOOKING FORM
+========================= */
 
 .booking-form{
+width:100%;
 display:flex;
 flex-direction:column;
-gap:10px;
+gap:12px;
 }
 
 .booking-form input,
-.booking-form select{
-padding:12px;
+.booking-form select,
+.booking-form textarea{
+width:100%;
+padding:14px;
 border:none;
-border-radius:5px;
-background:rgba(255,255,255,0.9);
+border-radius:6px;
+font-size:15px;
+background:rgba(255,255,255,0.96);
+}
+
+.booking-form textarea{
+min-height:100px;
+resize:vertical;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus{
+outline:3px solid rgba(255,208,0,0.75);
 }
 
 .booking-form label{
-color:white;
+color:#fff;
 font-size:14px;
-text-align:left;
-}
-
-.contact-info{
-margin-top:10px;
-color:white;
 font-weight:bold;
+text-align:left;
+margin-top:3px;
 }
 
-/* Booking Buttons Layout */
+/* =========================
+BOOKING BUTTONS
+========================= */
 
 .booking-buttons{
 display:flex;
-gap:10px;
-margin-top:10px;
+gap:12px;
+width:100%;
+margin-top:5px;
 }
 
-/* Book Taxi Button */
+.book-btn,
+.call-btn{
+flex:1;
+min-height:48px;
+border-radius:6px;
+font-size:15px;
+font-weight:bold;
+transition:all 0.3s ease;
+}
 
 .book-btn{
-flex:1;
-background:#FFD000;
 border:none;
-padding:12px;
-border-radius:5px;
-font-weight:bold;
+background:#FFD000;
+color:#111;
 cursor:pointer;
-transition:0.3s;
 }
 
 .book-btn:hover{
 background:#e6c200;
-transform:scale(1.03);
+transform:translateY(-2px);
 }
 
-/* Call Button */
-
 .call-btn{
-flex:1;
 background:#28a745;
-color:white;
+color:#fff;
 text-decoration:none;
-padding:12px;
-border-radius:5px;
-font-weight:bold;
 display:flex;
 align-items:center;
 justify-content:center;
-gap:6px;
-transition:0.3s;
+gap:8px;
 }
 
 .call-btn:hover{
 background:#218838;
-transform:scale(1.03);
+transform:translateY(-2px);
 }
 
-/* Sections */
+/* =========================
+SECTIONS
+========================= */
 
 .about,
 .services,
 .fleet,
 .reviews,
 .contact{
-padding:70px 0;
-background:white;
-margin-top:20px;
+padding:clamp(50px, 8vw, 80px) 0;
+background:#fff;
+}
+
+.services,
+.reviews{
+background:#f5f5f5;
 }
 
 .section-title{
 text-align:center;
 margin-bottom:40px;
-font-size:30px;
+font-size:clamp(26px, 4vw, 36px);
+color:#111;
 }
 
-/* Grid Layout */
+/* =========================
+ABOUT
+========================= */
+
+.about .container > p{
+max-width:850px;
+margin:auto;
+text-align:center;
+font-size:17px;
+}
+
+/* =========================
+GRID
+========================= */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+grid-template-columns:repeat(4, minmax(0, 1fr));
+gap:25px;
 }
 
-/* Cards */
+/* =========================
+CARDS
+========================= */
 
 .card{
-background:#fafafa;
-border-radius:10px;
+height:100%;
+background:#fff;
+border-radius:12px;
 overflow:hidden;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-transition:0.3s;
+box-shadow:0 4px 15px rgba(0,0,0,0.10);
+transition:transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover{
-transform:translateY(-5px) scale(1.03);
-box-shadow:0 6px 15px rgba(0,0,0,0.2);
+transform:translateY(-7px);
+box-shadow:0 10px 25px rgba(0,0,0,0.18);
 }
 
 .card img{
 width:100%;
-height:180px;
+height:190px;
 object-fit:cover;
 }
 
 .card h3{
-margin:15px;
+margin:18px 18px 10px;
+font-size:20px;
+color:#111;
 }
 
 .card p{
-margin:0 15px 20px;
-font-size:14px;
+margin:0 18px 22px;
+font-size:15px;
+color:#666;
 }
 
-/* Reviews */
+/* =========================
+REVIEWS
+========================= */
+
+.carousel-container{
+position:relative;
+max-width:900px;
+margin:auto;
+padding:0 55px;
+}
+
+.review-grid{
+position:relative;
+min-height:180px;
+}
 
 .review-card{
-background:white;
-padding:20px;
-border-radius:8px;
-box-shadow:0 3px 8px rgba(0,0,0,0.1);
-transition:0.3s;
-opacity:0;
-position:absolute;
-top:0;
-left:0;
+display:none;
 width:100%;
+min-height:180px;
+background:#fff;
+padding:35px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.10);
+text-align:center;
+}
+
+.review-card.active{
 display:flex;
 flex-direction:column;
 justify-content:center;
 }
 
-.review-card.active{
-opacity:1;
-position:relative;
+.review-card p{
+font-size:18px;
+font-style:italic;
+margin-bottom:15px;
 }
 
-.review-card:hover{
-transform:scale(1.02);
-box-shadow:0 5px 12px rgba(0,0,0,0.15);
-}
-
-.review-grid{
-position:relative;
-min-height:200px;
-display:flex;
-overflow:hidden;
-gap:20px;
-}
-
-.carousel-container{
-position:relative;
+.review-card h4{
+color:#555;
 }
 
 .carousel-btn{
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-background:rgba(0,0,0,0.5);
-color:white;
+width:45px;
+height:45px;
 border:none;
-padding:10px 15px;
-font-size:20px;
-cursor:pointer;
 border-radius:50%;
-z-index:10;
+background:#111;
+color:#fff;
+cursor:pointer;
+font-size:18px;
+z-index:5;
 transition:0.3s;
 }
 
 .carousel-btn:hover
 
 .carousel-btn.prev{
-left:-10px;
+left:0;
 }
 
 .carousel-btn.next{
-right:-10px;
+right:0;
 }
 
-/* Contact */
+/* =========================
+CONTACT
+========================= */
 
 .contact{
 text-align:center;
 }
 
+.contact h2{
+font-size:clamp(28px, 4vw, 36px);
+}
+
+.contact p{
+margin-top:10px;
+}
+
 .btn{
-display:inline-block;
-margin-top:20px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+margin-top:25px;
 background:#FFD000;
-padding:12px 25px;
+padding:14px 28px;
 text-decoration:none;
-color:black;
+color:#111;
 font-weight:bold;
-border-radius:5px;
-transition:0.3s;
+border-radius:6px;
+transition:all 0.3s ease;
 }
 
 .btn:hover{
-transform:scale(1.05);
+background:#e6c200;
+transform:translateY(-2px);
 }
+
+/* =========================
+FOOTER
+========================= */
 
 .footer{
 background:#111;
-color:white;
+color:#fff;
 text-align:center;
-padding:20px;
+padding:22px 15px;
 }
 
-.social-icons{
-margin-top:20px;
-}
-
-.social-icons a{
-color:white;
-margin:0 10px;
-font-size:20px;
-}
-
-.social-icons a:hover
-
-/* Floating Booking Button */
+/* =========================
+FLOATING BOOKING BUTTON
+========================= */
 
 .floating-btn{
 position:fixed;
@@ -372,87 +454,200 @@ bottom:25px;
 right:25px;
 background:#FFD000;
 color:#111;
-padding:15px 25px;
+padding:13px 22px;
 border-radius:50px;
 text-decoration:none;
-font-size:16px;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
-transition:transform 0.2s,background-color 0.3s;
-z-index:200;
+font-size:15px;
+font-weight:bold;
+box-shadow:0 5px 18px rgba(0,0,0,0.25);
+transition:0.3s;
+z-index:900;
 }
 
 .floating-btn:hover{
 background:#e6c200;
-transform:scale(1.1);
+transform:scale(1.05);
 }
 
-/* Back to Top */
+/* =========================
+BACK TO TOP
+========================= */
 
 #back-to-top{
 position:fixed;
-bottom:30px;
-right:30px;
-background:#FFD000;
-color:#111;
-padding:10px 12px;
+bottom:25px;
+left:25px;
+width:45px;
+height:45px;
+background:#111;
+color:#FFD000;
 border:none;
 border-radius:50%;
 cursor:pointer;
 display:none;
+z-index:900;
 transition:0.3s;
 }
 
 #back-to-top:hover{
-transform:scale(1.1);
+transform:scale(1.08);
 }
 
-/* Responsive */
+/* =========================
+TABLET
+========================= */
+
+@media(max-width:1024px){
+
+```
+.grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+```
+
+}
+
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:768px){
 
-.nav-links{
-position:absolute;
-top:70px;
-left:0;
-width:100%;
-background:#111;
-flex-direction:column;
-overflow:hidden;
-max-height:0;
-transition:max-height 0.3s ease;
-z-index:1000;
-}
-
-.nav-links.active{
-max-height:500px;
-}
-
-.nav-links li{
-text-align:center;
-padding:15px 0;
+```
+.nav-container{
+    min-height:65px;
 }
 
 .hamburger{
-display:flex;
+    display:block;
 }
 
-.hero h2{
-font-size:28px;
+.nav{
+    width:100%;
 }
 
-.hero{
-min-height:70vh;
+.nav-links{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:#111;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.35s ease;
+    box-shadow:0 8px 15px rgba(0,0,0,0.2);
 }
 
-.review-grid{
-flex-wrap:nowrap;
-overflow-x:auto;
-scroll-snap-type:x mandatory;
-gap:15px;
+.nav-links.active{
+    max-height:500px;
+}
+
+.nav-links li{
+    width:100%;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.nav-links a{
+    display:block;
+    width:100%;
+    padding:15px 20px;
+    text-align:center;
+}
+
+.nav-links a:hover{
+    background:rgba(255,208,0,0.08);
+}
+
+.hero,
+.hero-overlay{
+    min-height:100svh;
+}
+
+.hero-overlay{
+    padding:90px 18px 50px;
+}
+
+.grid{
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.card img{
+    height:220px;
 }
 
 .booking-buttons{
-flex-direction:column;
+    flex-direction:column;
 }
+
+.carousel-container{
+    padding:0 45px;
+}
+
+.review-card{
+    padding:25px 18px;
+}
+
+.review-card p{
+    font-size:16px;
+}
+```
+
+}
+
+/* =========================
+SMALL MOBILE
+========================= */
+
+@media(max-width:480px){
+
+```
+.container{
+    width:92%;
+}
+
+.logo{
+    font-size:20px;
+}
+
+.hero h2{
+    font-size:30px;
+}
+
+.hero p{
+    font-size:15px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+    padding:13px 12px;
+    font-size:14px;
+}
+
+.floating-btn{
+    bottom:18px;
+    right:18px;
+    padding:12px 18px;
+}
+
+#back-to-top{
+    left:18px;
+    bottom:18px;
+}
+
+.carousel-container{
+    padding:0 38px;
+}
+
+.carousel-btn{
+    width:38px;
+    height:38px;
+    font-size:15px;
+}
+```
 
 }
