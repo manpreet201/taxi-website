@@ -3,252 +3,425 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* =========================
    HAMBURGER MENU
-========================= */
+========================== */
 
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
+const hamburger =
+    document.getElementById("hamburger");
 
-function openMenu() {
-    if (!hamburger || !navLinks) return;
+const navLinks =
+    document.getElementById("nav-links");
+
+
+function openMenu(){
+
+    if(!hamburger || !navLinks) return;
 
     navLinks.classList.add("active");
+
     hamburger.classList.add("active");
-    hamburger.setAttribute("aria-expanded", "true");
+
+    hamburger.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+    hamburger.setAttribute(
+        "aria-label",
+        "Close navigation menu"
+    );
 }
 
-function closeMenu() {
-    if (!hamburger || !navLinks) return;
+
+function closeMenu(){
+
+    if(!hamburger || !navLinks) return;
 
     navLinks.classList.remove("active");
+
     hamburger.classList.remove("active");
-    hamburger.setAttribute("aria-expanded", "false");
+
+    hamburger.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    hamburger.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+    );
 }
 
-function toggleMenu() {
-    if (!navLinks) return;
 
-    if (navLinks.classList.contains("active")) {
+function toggleMenu(){
+
+    if(!navLinks) return;
+
+    if(
+        navLinks.classList.contains("active")
+    ){
         closeMenu();
-    } else {
+    }
+    else{
         openMenu();
     }
 }
 
-if (hamburger && navLinks) {
 
-    hamburger.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        toggleMenu();
-    });
+if(hamburger && navLinks){
 
-    document.querySelectorAll("#nav-links a").forEach(link => {
+    /* Toggle menu */
 
-        link.addEventListener("click", () => {
-            closeMenu();
+    hamburger.addEventListener(
+        "click",
+        function(event){
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            toggleMenu();
+
+        }
+    );
+
+
+    /* Close after clicking navigation link */
+
+    document
+        .querySelectorAll("#nav-links a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    closeMenu();
+
+                }
+            );
+
         });
 
-    });
 
-    document.addEventListener("click", (event) => {
+    /* Close when clicking outside */
 
-        if (
-            !hamburger.contains(event.target) &&
-            !navLinks.contains(event.target)
-        ) {
-            closeMenu();
+    document.addEventListener(
+        "click",
+        function(event){
+
+            if(
+                !hamburger.contains(event.target) &&
+                !navLinks.contains(event.target)
+            ){
+
+                closeMenu();
+
+            }
+
         }
+    );
 
-    });
 
-    document.addEventListener("keydown", (event) => {
+    /* Close with Escape key */
 
-        if (event.key === "Escape") {
-            closeMenu();
+    document.addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Escape"){
+
+                closeMenu();
+
+            }
+
         }
+    );
 
-    });
 
-    window.addEventListener("resize", () => {
+    /* Reset menu when switching to desktop */
 
-        if (window.innerWidth > 768) {
-            closeMenu();
+    window.addEventListener(
+        "resize",
+        function(){
+
+            if(window.innerWidth > 768){
+
+                closeMenu();
+
+            }
+
         }
-
-    });
+    );
 
 }
 
 
 /* =========================
    HERO ANIMATION
-========================= */
+========================== */
 
-const heroContent = document.querySelector(".hero-content");
+const heroContent =
+    document.querySelector(".hero-content");
 
-if (heroContent) {
 
-    setTimeout(() => {
-        heroContent.classList.add("animate");
-    }, 150);
+if(heroContent){
+
+    setTimeout(
+        () => {
+
+            heroContent.classList.add(
+                "animate"
+            );
+
+        },
+        150
+    );
 
 }
 
 
 /* =========================
    SMOOTH NAVIGATION
-========================= */
+========================== */
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(anchor => {
 
-    anchor.addEventListener("click", function(event) {
+        anchor.addEventListener(
+            "click",
+            function(event){
 
-        const targetId = this.getAttribute("href");
-        const target = document.querySelector(targetId);
+                const targetId =
+                    this.getAttribute("href");
 
-        if (!target) return;
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
 
-        event.preventDefault();
+                if(!target) return;
 
-        target.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+
+            }
+        );
 
     });
-
-});
 
 
 /* =========================
    BACK TO TOP
-========================= */
+========================== */
 
-const backToTop = document.getElementById("back-to-top");
+const backToTop =
+    document.getElementById(
+        "back-to-top"
+    );
 
-if (backToTop) {
 
-    window.addEventListener("scroll", () => {
+if(backToTop){
 
-        if (window.scrollY > 400) {
-            backToTop.style.display = "block";
-        } else {
-            backToTop.style.display = "none";
+    window.addEventListener(
+        "scroll",
+        function(){
+
+            if(window.scrollY > 400){
+
+                backToTop.style.display =
+                    "block";
+
+            }
+            else{
+
+                backToTop.style.display =
+                    "none";
+
+            }
+
         }
+    );
 
-    });
 
-    backToTop.addEventListener("click", () => {
+    backToTop.addEventListener(
+        "click",
+        function(){
 
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
 
-    });
+        }
+    );
 
 }
 
 
 /* =========================
    REVIEW CAROUSEL
-========================= */
+========================== */
 
-const reviews = document.querySelectorAll(".review-card");
-const prevBtn = document.querySelector(".carousel-btn.prev");
-const nextBtn = document.querySelector(".carousel-btn.next");
+const reviews =
+    document.querySelectorAll(
+        ".review-card"
+    );
+
+const prevBtn =
+    document.querySelector(
+        ".carousel-btn.prev"
+    );
+
+const nextBtn =
+    document.querySelector(
+        ".carousel-btn.next"
+    );
 
 let currentReview = 0;
 
-function showReview(index) {
 
-    if (reviews.length === 0) return;
+function showReview(index){
 
-    reviews.forEach(review => {
-        review.classList.remove("active");
-    });
+    if(reviews.length === 0) return;
 
-    reviews[index].classList.add("active");
+    reviews.forEach(
+        review => {
+
+            review.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    reviews[index].classList.add(
+        "active"
+    );
 
 }
 
-if (reviews.length > 0) {
 
-    if (prevBtn) {
+if(reviews.length > 0){
 
-        prevBtn.addEventListener("click", () => {
+    if(prevBtn){
 
-            currentReview =
-                (currentReview - 1 + reviews.length)
-                % reviews.length;
+        prevBtn.addEventListener(
+            "click",
+            function(){
 
-            showReview(currentReview);
+                currentReview =
+                    (
+                        currentReview -
+                        1 +
+                        reviews.length
+                    ) %
+                    reviews.length;
 
-        });
+                showReview(
+                    currentReview
+                );
 
-    }
-
-
-    if (nextBtn) {
-
-        nextBtn.addEventListener("click", () => {
-
-            currentReview =
-                (currentReview + 1)
-                % reviews.length;
-
-            showReview(currentReview);
-
-        });
+            }
+        );
 
     }
 
 
-    setInterval(() => {
+    if(nextBtn){
 
-        currentReview =
-            (currentReview + 1)
-            % reviews.length;
+        nextBtn.addEventListener(
+            "click",
+            function(){
 
-        showReview(currentReview);
+                currentReview =
+                    (
+                        currentReview +
+                        1
+                    ) %
+                    reviews.length;
 
-    }, 5000);
+                showReview(
+                    currentReview
+                );
+
+            }
+        );
+
+    }
+
+
+    setInterval(
+        function(){
+
+            currentReview =
+                (
+                    currentReview +
+                    1
+                ) %
+                reviews.length;
+
+            showReview(
+                currentReview
+            );
+
+        },
+        5000
+    );
 
 }
 
 
 /* =========================
-   EMAILJS BOOKING FORM
-========================= */
+   EMAILJS
+========================== */
 
 const bookingForm =
-    document.getElementById("booking-form");
+    document.getElementById(
+        "booking-form"
+    );
 
-if (
+
+if(
     bookingForm &&
     typeof emailjs !== "undefined"
-) {
+){
 
-    emailjs.init("H5YQu5dohuHmQx6EE");
+    emailjs.init(
+        "H5YQu5dohuHmQx6EE"
+    );
+
 
     bookingForm.addEventListener(
         "submit",
-        function(event) {
+        function(event){
 
             event.preventDefault();
 
+
             const submitButton =
-                bookingForm.querySelector(".book-btn");
+                bookingForm.querySelector(
+                    ".book-btn"
+                );
+
 
             const originalText =
                 submitButton
-                ? submitButton.textContent
-                : "Book Taxi";
+                    ? submitButton.textContent
+                    : "Book Taxi";
 
-            if (submitButton) {
+
+            if(submitButton){
 
                 submitButton.disabled = true;
-                submitButton.textContent = "Sending...";
+
+                submitButton.textContent =
+                    "Sending...";
 
             }
 
@@ -258,59 +431,80 @@ if (
                     '[name="submission_time"]'
                 );
 
-            if (!hiddenTime) {
+
+            if(!hiddenTime){
 
                 hiddenTime =
-                    document.createElement("input");
+                    document.createElement(
+                        "input"
+                    );
 
-                hiddenTime.type = "hidden";
-                hiddenTime.name = "submission_time";
+                hiddenTime.type =
+                    "hidden";
 
-                bookingForm.appendChild(hiddenTime);
+                hiddenTime.name =
+                    "submission_time";
+
+                bookingForm.appendChild(
+                    hiddenTime
+                );
 
             }
+
 
             hiddenTime.value =
                 new Date().toLocaleString();
 
 
-            emailjs.sendForm(
-                "service_8xi9wcg",
-                "template_6tw567g",
-                bookingForm
-            )
-            .then(() => {
+            emailjs
+                .sendForm(
+                    "service_8xi9wcg",
+                    "template_6tw567g",
+                    bookingForm
+                )
 
-                alert(
-                    "Booking sent successfully!"
+                .then(
+                    function(){
+
+                        alert(
+                            "Booking sent successfully!"
+                        );
+
+                        bookingForm.reset();
+
+                    }
+                )
+
+                .catch(
+                    function(error){
+
+                        console.error(
+                            "EmailJS Error:",
+                            error
+                        );
+
+                        alert(
+                            "Failed to send booking. Please try again."
+                        );
+
+                    }
+                )
+
+                .finally(
+                    function(){
+
+                        if(submitButton){
+
+                            submitButton.disabled =
+                                false;
+
+                            submitButton.textContent =
+                                originalText;
+
+                        }
+
+                    }
                 );
-
-                bookingForm.reset();
-
-            })
-            .catch(error => {
-
-                console.error(
-                    "EmailJS Error:",
-                    error
-                );
-
-                alert(
-                    "Failed to send booking. Please try again."
-                );
-
-            })
-            .finally(() => {
-
-                if (submitButton) {
-
-                    submitButton.disabled = false;
-                    submitButton.textContent =
-                        originalText;
-
-                }
-
-            });
 
         }
     );
